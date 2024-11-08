@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animedia Online - Смотреть аниме онлайн!</title>
+    <link rel="icon" href="templates/images/favicon.png" type="image/png">
+    <!-- <link rel="stylesheet" href="main.css"> -->
+     <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+
+}
+
+body{
+    padding: 0% 5% 0% 5%;
+}
+
+div{
+    display: block;
+}
+ul{
+    list-style: none;
+}
+
+.logo{
+    width: 100%;
+    margin-right: 10px;
+}
+
+.logo-a{
+    width: 180px;
+    padding-right: 20px;
+}
+
+.logo-a-for-mobile{
+    display: none;
+}
+
+.top-navigation{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    font-family: "Montserrat", sans-serif;
+}
+.left{
+    display: flex;
+    align-items: center;
+}
+
+.right{
+    display: flex;
+    align-items: center;
+}
+
+
+.top-navigation ul{
+    display: flex;
+    gap: 20px;
+}
+
+@media (max-width:1500px){
+   .top-navigation ul {
+        gap: 6px;
+        font-size: 90%;
+        margin: 0px;
+    }
+}
+
+.menu-for-mobile{
+    display: none;
+}
+
+.top-navigation a{
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 90%;
+}
+
+.search-container{
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #F9F9F9;
+    border-radius: 5px;
+}
+
+
+
+.search-container input {
+    border-color: transparent;
+    background-color: #F9F9F9;
+}
+
+.search-container input:focus{
+    outline: none;
+    .comments-container{
+        border-color: red;
+    }
+}
+
+.search-container button{
+    border-color: transparent;
+    background-color: #F9F9F9;
+}
+
+input::-webkit-input-placeholder {
+    color: rgb(24, 33, 63);
+    opacity: 1;
+}
+
+.controls button{
+    background-color: #C50725;
+    border-radius: 10px;
+    border-color: transparent;
+    margin: 0px 5px 0px 5px;
+    padding: 3px 5px 3px 5px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: #C50725;
+    padding-top: 20px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.items {
+    display: flex;
+}
+.item {
+    width: 100%;
+    text-align: center;
+}
+.item img {
+    width: 90%;
+    border-radius: 10px;
+    height: 80%;
+}
+
+.carousel a{
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+}
+
+.carousel p{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+    max-width: 170px;
+    margin-left: 30px;
+}
+
+.carousel button{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.rigth-arrow img{
+    transform: rotate(180deg)
+}
+
+.new-series{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.header{
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.series-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+}
+
+.anime-item{
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+    background-color: #F9F9F9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.anime-left{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+}
+
+.anime-left .info{
+    text-align: left;
+}
+
+.anime-right{
+    padding: 10px;
+    line-height: 25px;
+    color: rgb(152, 143, 143);
+}
+
+.anime-right .info-episode-number{
+    color:#c95567;
+    font-size: 30px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+.anime-item img{
+    height: 80px;
+    border-radius: 10px
+}
+
+.anime-left .name{
+    font-family: "Montserrat", sans-serif;
+    font-size: 17px;
+}
+
+.info-time{
+    color: grey;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+}
+
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    grid-area: 6 / 1 / 7 / 3; 
+    color: rgb(152, 143, 143);
+}
+
+.new-series button{
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    box-shadow: none;
+    font-family: "Montserrat", sans-serif;;
+}
+
+.pagination-button{
+    background-color: white;
+    color: black;
+    border: 1px solid grey;
+}
+
+.pagination-button:hover{
+    background-color: #C50725;
+    color: white;
+    border-color: transparent;
+}
+
+.pagination-button-back{
+    background-color: #C50725;
+    color: white;
+    border: none;
+}
+
+.presents-today{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.presents-today span{
+    color: #c95567; 
+}
+
+.presents-today .header{
+    margin-top: 40px;
+}
+
+.filter{
+    margin-top: 100px;
+    background-color: rgb(249, 249, 249);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.filter form{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+    align-items: center;
+}
+
+.filter-item{
+    display: flex;
+    flex-direction: space-between;
+    gap: 7px;
+}
+
+.filter-item ul{
+    display: flex;
+    align-items:center;
+    color:black;
+    font-size: 12px;
+    
+}
+
+
+.filter img{
+    width: 300px;
+}
+
+.new-anime{
+    margin-top: 30px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+}
+
+.poster-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    position: relative;
+}
+
+.poster-item img{
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.anime-pagination{
+    text-decoration: none;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 7px;
+    font-family:  "Montserrat", sans-serif;
+}
+
+.anime-pagination:hover{
+    background-color:grey;
+    color: white;
+}
+
+.anime-pagination img{
+    transform: rotate(180deg);
+}
+
+.pagination .current-page{
+    background-color: #C50725;
+    padding: 10px 15px;
+    border-radius: 7px;
+    color: white;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+  }
+
+body::-webkit-scrollbar-thumb {
+    background-color: #C50725;
+    border-radius: 20px;
+    border: 3px solid #C50725;
+  }
+
+
+
+  .rating{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background-color: white;
+    border-radius: 5px;
+    line-height: 3px;
+    text-align: center;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+
+  .count{
+    padding: 5px;
+    top: 5px;
+    left: 10px;
+    position: absolute;
+    background-color: white;
+    color: red;
+    border-radius: 5px;
+    max-height: fit-content;
+  }
+
+  .rating p{
+    font-family: "Montserrat", sans-serif;;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  .rating img{
+    margin-right: 5px;
+    width: 17px;
+  }
+
+  .filter-item ul li{
+    background-color:white;
+    padding: 3px 10px;
+  }
+
+  .filter-item ul li:hover{
+    background-color: #C50725;
+  }
+
+  .filter-item a{
+    color: #8C8C8C;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.filter-item a:hover{
+    color:white;
+}
+
+.filter select{
+    border-color: #8c8c8c;
+    color: grey;
+    height: 30px;
+    min-width: 200px;
+}
+
+.filter-item .checkbox-slider{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-family: "Montserratt", sans-serif;
+}
+
+.filter-item button{
+    width: 150px;
+    border-color: transparent;
+}
+
+.mobile-ver-filter{
+    display: none;
+}
+
+.comments-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 20px;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    max-width: 70px;
+    align-items: center;
+    gap: 5px;
+}
+
+.user .profile{
+    border-radius: 20px;
+    max-width: 100%;
+}
+
+
+.rank{
+    max-width: 30px;
+}
+
+.status{
+    background-color: #ffeb00;
+    border-radius: 5px;
+    padding: 3px 10px;
+}
+
+.comment{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 20px;
+}
+
+.comm-inf{
+    display:flex;
+    flex-direction: row;
+    gap: 10px;
+    max-height: 25px;
+    color: #C50725;
+    font-size: 90%;
+    align-items: center;
+}
+
+.count-comms{
+    color: grey;
+}
+
+.group-icon{
+    width: 25px;
+}
+
+.main-comm-content{
+    background-color: #c3f6f8;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.time{
+    font-size: 70%;
+    text-align: left;
+    color: #8C8C8C;
+    margin-top:5px;
+}
+
+.time a{
+    text-decoration: none;
+    color: black;
+}
+
+.description{
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    text-align: left;
+    font-family: "Montserrat",sans-serif;
+    line-height: 25px;
+    padding: 10px;
+    margin-top: 40px;
+    font-size: 80%;
+}
+
+.description .header{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 140%;
+}
+
+.description a{
+    text-decoration: none;
+    color: #C50725;
+}
+
+footer{
+    background-color: #C50725;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 70%;
+    color: white;
+    margin-top: 30px;
+}
+
+.top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.right-top{
+    display: flex;
+    gap: 10px;
+}
+
+.bottom{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom img{
+    width: 25px;
+}
+
+.top a{
+    color: white;
+    text-decoration: none;
+}
+
+.top a:hover{
+    text-decoration:underline;
+}
+
+.filter-item img{
+    max-width: 100%;
+}
+
+@media (max-width:415px){
+    .carousel{
+        display: none;
+    }
+
+    .top-navigation ul{
+        display: none;
+    }
+    .top-navigation{
+        flex-direction: column;
+    }
+
+    .new-series .series-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filter form{
+        display: none;
+    }
+
+    .filter{
+        background-color: transparent;
+    }
+
+    .mobile-ver-filter{
+        display: block;
+        background-color: #C50725;
+        color: white;
+        border-color: transparent;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .btn-cont{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .mobile-ver-filter img{
+        width: 25px;
+    }
+
+
+    .grid{
+        display: grid;
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 15px;
+    }
+    
+
+    .pagination{
+        gap: 5px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .comments-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menu-for-mobile{
+        display: block;
+    }
+
+    .menu-for-mobile img{
+        width: 20px;
+    }
+
+    .logo-a-for-mobile{
+        align-items: center;
+        display: block;
+        max-width: 160px;
+    }
+
+    .left{
+        display: none;
+    }
+
+    .right{
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 30px;
+    }
+
+    .search-container{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .controls{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+
+    .top-buttons{
+        display: flex;
+        gap: 5px;
+    }
+    
+    .controls button{
+        margin: 0px;
+    }
+
+    .logo-a{
+        display: none;
+    }
+
+
+ }
+ 
+     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="top-navigation">
+            <div class="left">
+            <a href="\" class="logo-a">
+                <img src="templates/images/logo.svg" alt="" class="logo">
+            </a>
+            <ul>
+                <li class="top-nav-item"><a href="">Жанр</a></li>
+                <li class="top-nav-item"><a href="">Тип</a></li>
+                <li class="top-nav-item"><a href="">Статус</a></li>
+                <li class="top-nav-item"><a href="">Расписание</a></li>
+                <li class="top-nav-item"><a href="">Топ 100</a></li>
+                <li class="top-nav-item"><a href="">Закладки</a></li>
+            </ul>
+            </div>
+            <div class="right">
+                <div class="search-container">
+                    <input type="text" placeholder="Поиск аниме">
+                    <button type="submit">
+                        <img src="/templates/images/search.svg" alt="Search">
+                    </button>
+                </div>
+            <div class="controls">
+                <div>
+                    <a href="\" class="logo-a-for-mobile">
+                        <img src="templates/images/logo.svg" alt="" class="logo">
+                    </a>
+                </div>
+                <div class="top-buttons">
+                    <button><img src="/templates/images/moon.svg" alt="Theme"></button>
+                    <button><img src="/templates/images/profile.svg" alt=""></button>
+                    <button class="menu-for-mobile"><img src="/templates/images/menu.png" alt=""></button>
+                </div>
+            </div>
+        </nav>
+        <div class="carousel">
+            <button><img src="templates/images/left-arrow.svg" alt=""></button>
+            <div class="items">
+                <div class="item">
+                    <a href="">
+                        <img src="templates/images/31kolu-07ro.webp" alt="Боевой мастер">
+                        <p>Боевой мастер</p>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="">
+                        <img src="templates/images/1699870413_povelitel-besstrashnogo-duha.webp" alt="Расколотая битвой ...">
+                        <p>Расколотая битвой синева небес 5</p>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="">
+                        <img src="templates/images/1703266269_xdspplxfsv4.webp" alt="Боевой континент 2...">
+                        <p>Боевой континент 2: Непревзойдённый клан Тан</p>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="">
+                        <img src="templates/images/bezuprechnyj-mir.webp" alt="Поглощенная звезда">
+                        <p>Поглощенная звезда</p>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="">
+                        <img src="templates/images/c2dde8fa7a71c055f2291c68967c7db4.webp" alt="Непревзойденный н...">
+                        <p>Непревзойденный на пути алхимии</p>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="">
+                        <img src="templates/images/photo_2024-10-01_00-15-22.webp" alt="Безупречный мир">
+                        <p>Безупречный мир</p>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="">
+                        <img src="templates/images/protivostojanie-svjatogo.webp" alt="Противостоящий не...">
+                        <p>Противостояние святого</p>
+                    </a>
+                </div>
+            </div>
+            <button class="rigth-arrow"><img src="templates/images/left-arrow.svg" alt=""></button>
+        </div>
+        <div class="new-series">
+            <p class="header">Новые серии аниме</p>
+            <div class="series-container">
+                <a href="" class="anime-item item1">
+                    <div class="anime-left">
+                        <img src="templates/images/anime1.webp" alt="Нина в королевстве звезд">
+                        <div class="info">
+                            <p class="name">Хаигакура</p>
+                             <p class="info-time">Сегодня, 19:00</p>   
+                        </div>
+                         
+                    </div>
+                    <div class="anime-right">
+                         <div class="info-episode-number">5</div>
+                         <div class="info-episode">серия</div>
+                    </div>
+                </a>
+                <a href="" class="anime-item item2">
+                    <div class="anime-left">
+                       <img src="templates/images/31kolu-07ro.webp" alt="Нина в королевстве звезд">
+                       <div class="info">
+                        <p class="name">Бессмертие</p>
+                         <p class="info-time">Вчера, 20:00</p>   
+                    </div>
+                    </div>
+                    <div class="anime-right">
+                        <div class="info-episode-number">11</div>
+                        <div class="info-episode">серия</div>
+                    </div>
+                </a>
+                <a href="" class="anime-item item3">
+                    <div class="anime-left">
+                       <img src="templates/images/1703266269_xdspplxfsv4.webp" alt="Нина в королевстве звезд">
+                       <div class="info">
+                        <p class="name">становление богом</p>
+                         <p class="info-time">Сегодня, 11:00</p>   
+                    </div>
+                    </div>
+                    <div class="anime-right">
+                        <div class="info-episode-number">2</div>
+                        <div class="info-episode">серия</div>
+                    </div>
+                </a>
+                <a href="" class="anime-item item4">
+                    <div class="anime-left">
+                       <img src="templates/images/photo_2024-10-01_00-15-22.webp" alt="Нина в королевстве звезд">
+                       <div class="info">
+                        <p class="name">Со скукой покончено</p>
+                         <p class="info-time">Вчера, 12:13</p>   
+                    </div>
+                    </div>
+                    <div class="anime-right">
+                        <div class="info-episode-number">5</div>
+                        <div class="info-episode">серия</div>
+                    </div>
+                </a>
+                <a href="" class="anime-item item5">
+                    <div class="anime-left">
+                       <img src="templates/images/1699870413_povelitel-besstrashnogo-duha.webp" alt="Нина в королевстве звезд">
+                       <div class="info">
+                        <p class="name">Безупречный мир</p>
+                         <p class="info-time">Сегодня, 21:30/p>   
+                    </div>
+                    </div>
+                    <div class="anime-right">
+                        <div class="info-episode-number">123</div>
+                        <div class="info-episode">серия</div>
+                    </div>
+                </a>
+                <a href="" class="anime-item item6">
+                    <div class="anime-left">
+                       <img src="templates/images/c2dde8fa7a71c055f2291c68967c7db4.webp" alt="Нина в королевстве звезд">
+                       <div class="info">
+                        <p class="name">Ходоки чистилища</p>
+                         <p class="info-time">Сегодня, 10:32</p>   
+                    </div>
+                    </div>
+                    <div class="anime-right">
+                        <div class="info-episode-number">9</div>
+                        <div class="info-episode">серия</div>
+                    </div>
+                </a>
+                <a href="" class="anime-item item7">
+                    <div class="anime-left">
+                       <img src="templates/images/protivostojanie-svjatogo.webp" alt="Нина в королевстве звезд">
+                       <div class="info">
+                        <p class="name">Голубая шкатулка</p>
+                         <p class="info-time">Вчера, 18:43</p>   
+                    </div>
+                    </div>
+                    <div class="anime-right">
+                        <div class="info-episode-number">4</div>
+                        <div class="info-episode">серия</div>
+                    </div>
+                </a>
+                <a href="" class="anime-item item8">
+                    <div class="anime-left">
+                       <img src="templates/images/nesravnennyj-boevoj-duh.webp" alt="Нина в королевстве звезд">
+                       <div class="info">
+                        <p class="name">Одинокий странник</p>
+                         <p class="info-time">Сегодня, 19:54</p>   
+                    </div>
+                    </div>
+                    <div class="anime-right">
+                        <div class="info-episode-number">5-6</div>
+                        <div class="info-episode">серия</div>
+                    </div>
+                </a>
+                <a href="" class="anime-item item9">
+                    <div class="anime-left">
+                       <img src="templates/images/so-skukoj-pokoncheno.webp" alt="Нина в королевстве звезд">
+                       <div class="info">
+                        <p class="name">Боевой мастер</p>
+                         <p class="info-time">Вчера, 17:34</p>   
+                    </div>
+                    </div>
+                    <div class="anime-right">
+                        <div class="info-episode-number">13</div>
+                        <div class="info-episode">серия</div>
+                    </div>
+                </a>
+                <a href="" class="anime-item item10">
+                    <div class="anime-left">
+                       <img src="templates/images/stanovlenie-bogom.webp" alt="Нина в королевстве звезд">
+                       <div class="info">
+                        <p class="name">Безупречный мир</p>
+                         <p class="info-time">Сегодня, 19:02</p>   
+                    </div>
+                    </div>
+                    <div class="anime-right">
+                        <div class="info-episode-number">12-13</div>
+                        <div class="info-episode">серии</div>
+                    </div>
+                </a>
+                <div class="pagination">
+                    <p>1 из 5</p>
+                    <button class="pagination-button-back">Назад</button>
+                    <button class="pagination-button">Вперед</button>
+                </div>
+            </div>
+
+            <div class="presents-today">
+                <p class="header">Сегодня выйдет</p>
+                <div class="series-container">
+                    <a href="" class="anime-item item1">
+                        <div class="anime-left">
+                            <img src="templates/images/1703266269_xdspplxfsv4.webp" alt="Нина в королевстве звезд">
+                            <div class="info">
+                                <p class="name">7 смертных грехов</p>
+                                 <p class="info-time">Новая серия в <span>19:00</span></p>   
+                            </div>
+                             
+                        </div>
+                        <div class="anime-right">
+                             <div class="info-episode-number">5</div>
+                             <div class="info-episode">серия</div>
+                        </div>
+                    </a>
+                    <a href="" class="anime-item item2">
+                        <div class="anime-left">
+                           <img src="templates/images/anime1.webp" alt="Нина в королевстве звезд">
+                           <div class="info">
+                            <p class="name">Хаигакура</p>
+                             <p class="info-time">Новая серия в <span>нестабильно</span></p>   
+                        </div>
+                        </div>
+                        <div class="anime-right">
+                            <div class="info-episode-number">5</div>
+                            <div class="info-episode">серия</div>
+                        </div>
+                    </a>
+                    <a href="" class="anime-item item3">
+                        <div class="anime-left">
+                           <img src="templates/images/anime1.webp" alt="Нина в королевстве звезд">
+                           <div class="info">
+                            <p class="name">Хаигакура</p>
+                             <p class="info-time">Новая серия в <span>19:00</span></p>   
+                        </div>
+                        </div>
+                        <div class="anime-right">
+                            <div class="info-episode-number">5</div>
+                            <div class="info-episode">серия</div>
+                        </div>
+                    </a>
+                    <a href="" class="anime-item item4">
+                        <div class="anime-left">
+                           <img src="templates/images/anime1.webp" alt="Нина в королевстве звезд">
+                           <div class="info">
+                            <p class="name">Хаигакура</p>
+                             <p class="info-time">Новая серия в <span>19:00</span></p>   
+                        </div>
+                        </div>
+                        <div class="anime-right">
+                            <div class="info-episode-number">5</div>
+                            <div class="info-episode">серия</div>
+                        </div>
+                    </a>
+                    <a href="" class="anime-item item5">
+                        <div class="anime-left">
+                           <img src="templates/images/anime1.webp" alt="Нина в королевстве звезд">
+                           <div class="info">
+                            <p class="name">Хаигакура</p>
+                             <p class="info-time">Новая серия в <span>19:00</span></p>   
+                        </div>
+                        </div>
+                        <div class="anime-right">
+                            <div class="info-episode-number">5</div>
+                            <div class="info-episode">серия</div>
+                        </div>
+                    </a>
+                    <a href="" class="anime-item item6">
+                        <div class="anime-left">
+                           <img src="templates/images/anime1.webp" alt="Нина в королевстве звезд">
+                           <div class="info">
+                            <p class="name">Хаигакура</p>
+                             <p class="info-time">Новая серия в <span>19:00</span></p>   
+                        </div>
+                        </div>
+                        <div class="anime-right">
+                            <div class="info-episode-number">5</div>
+                            <div class="info-episode">серия</div>
+                        </div>
+                    </a>
+                    <a href="" class="anime-item item7">
+                        <div class="anime-left">
+                           <img src="templates/images/anime1.webp" alt="Нина в королевстве звезд">
+                           <div class="info">
+                            <p class="name">Хаигакура</p>
+                             <p class="info-time">Новая серия в <span>19:00</span></p>   
+                        </div>
+                        </div>
+                        <div class="anime-right">
+                            <div class="info-episode-number">5</div>
+                            <div class="info-episode">серия</div>
+                        </div>
+                    </a>
+                    <a href="" class="anime-item item8">
+                        <div class="anime-left">
+                           <img src="templates/images/anime1.webp" alt="Нина в королевстве звезд">
+                           <div class="info">
+                            <p class="name">Хаигакура</p>
+                             <p class="info-time">Новая серия в <span>19:00</span></p>   
+                        </div>
+                        </div>
+                        <div class="anime-right">
+                            <div class="info-episode-number">5</div>
+                            <div class="info-episode">серия</div>
+                        </div>
+                    </a>
+                    <a href="" class="anime-item item9">
+                        <div class="anime-left">
+                           <img src="templates/images/anime1.webp" alt="Нина в королевстве звезд">
+                           <div class="info">
+                            <p class="name">Хаигакура</p>
+                             <p class="info-time">Новая серия в <span>19:00</span></p>   
+                        </div>
+                        </div>
+                        <div class="anime-right">
+                            <div class="info-episode-number">5</div>
+                            <div class="info-episode">серия</div>
+                        </div>
+                    </a>
+                    <a href="" class="anime-item item10">
+                        <div class="anime-left">
+                           <img src="templates/images/anime1.webp" alt="Нина в королевстве звезд">
+                           <div class="info">
+                            <p class="name">Хаигакура</p>
+                             <p class="info-time">Новая серия в <span>19:00</span></p>   
+                        </div>
+                        </div>
+                        <div class="anime-right">
+                            <div class="info-episode-number">5</div>
+                            <div class="info-episode">серия</div>
+                        </div>
+                    </a>
+                </div>
+        </div>
+        <section class="filter">
+            <button class="mobile-ver-filter"><div class="btn-cont"><img src="templates/images/sliders.png" alt="">Фильтр</div></button>
+            <form>
+                <div class="filter-item">
+                    <select name="ganre" class="select-ganre">
+                        <option value label="Жанр">Все</option>
+                        <option value="3D">3D</option>
+                        <option value="Китайское">Китайское</option>
+                    </select>
+                    <select name="ganre" class="exclude-ganre">
+                        <option value label="Исключить жанр">Все</option>
+                        <option value="3D">3D</option>
+                        <option value="Китайское">Китайское</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <select name="sort" class="sort">
+                        <option value label="Сортировать">Все</option>
+                        <option value="edit date">По дате редактирования</option>
+                        <option value="add date">По дате добавления</option>
+                    </select>
+                    <label class="checkbox-slider">
+                        <input type="checkbox"></input>
+                        <div>Онгоинг</div>
+                    </label>
+                </div>
+                <div class="filter-item">
+                    <img src="templates/images/filter-left.png" alt="">
+                </div>
+                <div class="filter-item">
+                    <img src="templates/images/filter-right.png" alt="">
+                </div>
+                <div class="filter-item">
+                    <ul>
+                        <li><a href="">TV сериал</a></li>
+                        <li><a href="">OVA</a></li>
+                        <li><a href="">ONA</a></li>
+                        <li><a href="">Фильм</a></li>
+                        <li><a href="">Компиляция</a></li>
+
+                    </ul>
+                </div>
+                <div class="filter-item">
+                    <button class="pagination-button-back">Подобрать</button>
+                    <button class="pagination-button">Сбросить</button>
+                </div>
+            </form>
+        </section>
+        <section class="new-anime">
+            <p class="header">Новые аниме на сайте</p>
+            <div class="grid">
+                <div class="poster-item">
+                    <img src="templates/images/c2dde8fa7a71c055f2291c68967c7db4.webp" alt="" class="poster-img">
+                    <p>Ван-Пис: Остров Рыболюдей (Ремастер)</p>
+                    <div class="count">1 из 21</div>
+                    <div class="rating"><p><img src="templates/images/favicon.png" alt="">6.07</p><p><img src="templates/images/shiki.svg" alt=""> 7.44</p></div>
+                </div>
+                <div class="poster-item">
+                    <img src="templates/images/c2dde8fa7a71c055f2291c68967c7db4.webp" alt="" class="poster-img">
+                    <div class="count">1 из 21</div>
+                    <div class="rating"><p><img src="templates/images/favicon.png" alt="">6.07</p><p><img src="templates/images/shiki.svg" alt=""> 7.44</p></div>
+                    <p>Ван-Пис: Остров Рыболюдей (Ремастер)</p>
+                </div>
+                <div class="poster-item">
+                    <img src="templates/images/c2dde8fa7a71c055f2291c68967c7db4.webp" alt="" class="poster-img">
+                    <div class="count">1 из 21</div>
+                    <div class="rating"><p><img src="templates/images/favicon.png" alt="">6.07</p><p><img src="templates/images/shiki.svg" alt=""> 7.44</p></div>
+                    <p>Ван-Пис: Остров Рыболюдей (Ремастер)</p>
+                </div>
+                <div class="poster-item">
+                    <img src="templates/images/c2dde8fa7a71c055f2291c68967c7db4.webp" alt="" class="poster-img">
+                    <div class="count">1 из 21</div>
+                    <div class="rating"><p><img src="templates/images/favicon.png" alt="">6.07</p><p><img src="templates/images/shiki.svg" alt=""> 7.44</p></div>
+                    <p>Ван-Пис: Остров Рыболюдей (Ремастер)</p>
+                </div>
+                <div class="poster-item">
+                    <img src="templates/images/c2dde8fa7a71c055f2291c68967c7db4.webp" alt="" class="poster-img">
+                    <div class="count">1 из 21</div>
+                    <div class="rating"><p><img src="templates/images/favicon.png" alt="">6.07</p><p><img src="templates/images/shiki.svg" alt=""> 7.44</p></div>
+                    <p>Ван-Пис: Остров Рыболюдей (Ремастер)</p>
+                </div>
+                <div class="poster-item">
+                    <img src="templates/images/c2dde8fa7a71c055f2291c68967c7db4.webp" alt="" class="poster-img">
+                    <div class="count">1 из 21</div>
+                    <div class="rating"><p><img src="templates/images/favicon.png" alt="">6.07</p><p><img src="templates/images/shiki.svg" alt=""> 7.44</p></div>
+                    <p>Ван-Пис: Остров Рыболюдей (Ремастер)</p>
+                </div>
+                <div class="poster-item">
+                    <img src="templates/images/c2dde8fa7a71c055f2291c68967c7db4.webp" alt="" class="poster-img">
+                    <div class="count">1 из 21</div>
+                    <div class="rating"><p><img src="templates/images/favicon.png" alt="">6.07</p><p><img src="templates/images/shiki.svg" alt=""> 7.44</p></div>
+                    <p>Ван-Пис: Остров Рыболюдей (Ремастер)</p>
+                </div>
+                <div class="poster-item">
+                    <img src="templates/images/c2dde8fa7a71c055f2291c68967c7db4.webp" alt="" class="poster-img">
+                    <div class="count">1 из 21</div>
+                    <div class="rating"><p><img src="templates/images/favicon.png" alt="">6.07</p><p><img src="templates/images/shiki.svg" alt=""> 7.44</p></div>
+                    <p>Ван-Пис: Остров Рыболюдей (Ремастер)</p>
+                </div>
+                <div class="poster-item">
+                    <img src="templates/images/c2dde8fa7a71c055f2291c68967c7db4.webp" alt="" class="poster-img">
+                    <div class="count">1 из 21</div>
+                    <div class="rating"><p><img src="templates/images/favicon.png" alt="">6.07</p><p><img src="templates/images/shiki.svg" alt=""> 7.44</p></div>
+                    <p>Ван-Пис: Остров Рыболюдей (Ремастер)</p>
+                </div>
+                <div class="poster-item">
+                    <img src="templates/images/c2dde8fa7a71c055f2291c68967c7db4.webp" alt="" class="poster-img">
+                    <div class="count">1 из 21</div>
+                    <div class="rating"><p><img src="templates/images/favicon.png" alt="">6.07</p><p><img src="templates/images/shiki.svg" alt=""> 7.44</p></div>
+                    <p>Ван-Пис: Остров Рыболюдей (Ремастер)</p>
+                </div>
+                <div class="poster-item">
+                    <img src="templates/images/c2dde8fa7a71c055f2291c68967c7db4.webp" alt="" class="poster-img">
+                    <div class="count">1 из 21</div>
+                    <div class="rating"><p><img src="templates/images/favicon.png" alt="">6.07</p><p><img src="templates/images/shiki.svg" alt=""> 7.44</p></div>
+                    <p>Ван-Пис: Остров Рыболюдей (Ремастер)</p>
+                </div>
+                <div class="poster-item">
+                    <img src="templates/images/c2dde8fa7a71c055f2291c68967c7db4.webp" alt="" class="poster-img">
+                    <div class="count">1 из 21</div>
+                    <div class="rating"><p><img src="templates/images/favicon.png" alt="">6.07</p><p><img src="templates/images/shiki.svg" alt=""> 7.44</p></div>
+                    <p>Ван-Пис: Остров Рыболюдей (Ремастер)</p>
+                </div>
+            </div>
+            <div class="pagination">
+                <span class="current-page">1</span>
+                <a href="" class="anime-pagination">2</a>
+                <a href="" class="anime-pagination">3</a>
+                <a href="" class="anime-pagination">4</a>
+                <a href="" class="anime-pagination">5</a>
+                <a href="" class="anime-pagination">6</a>
+                <a href="" class="anime-pagination">7</a>
+                <a href="" class="anime-pagination">8</a>
+                <a href="" class="anime-pagination">9</a>
+                <a href="" class="anime-pagination">10</a>
+                <span>...</span>
+                <a href="" class="anime-pagination">138</a>
+                <a href="" class="anime-pagination"><img src="/templates/images/left-arrow black.svg" alt=""></a>
+
+            </div>
+        </section>
+        <section class="comments">
+            <p class="header">Последние комментарии</p>
+            <div class="comments-container">
+                <div class="comment">
+                    <div class="user">
+                        <img src="/templates/images/noavatar.png" alt="" class="profile">
+                        <div class="status">Гуру</div>
+                        <img src="/templates/images/rank.svg" alt="" class="rank">
+                    </div>
+                    <div class="content">
+                        <div class="comm-inf">
+                            <img src="/templates/images/group.svg" alt="" class="group-icon">
+                            <div class="nickname">Tagir</div>
+                            <div class="count-comms status">900</div>
+                        </div>
+                            <div class="main-comm-content">Ну с этим у них просто - китайцы все маленькие, китаянки тоже, вот у них и китайчата совсем малепусенькие. Китаянки небось и не замечают как беременеют, а потом рожают. Видел как-то ролик, где как...</div>
+                            <div class="time">Только что к аниме <a href="">Название аниме</a></div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="user">
+                        <img src="/templates/images/noavatar.png" alt="" class="profile">
+                        <div class="status">Гуру</div>
+                        <img src="/templates/images/rank.svg" alt="" class="rank">
+                    </div>
+                    <div class="content">
+                        <div class="comm-inf">
+                            <img src="/templates/images/group.svg" alt="" class="group-icon">
+                            <div class="nickname">Tagir</div>
+                            <div class="count-comms status">900</div>
+                        </div>
+                            <div class="main-comm-content">Ну с этим у них просто - китайцы все маленькие, китаянки тоже, вот у них и китайчата совсем малепусенькие. Китаянки небось и не замечают как беременеют, а потом рожают. Видел как-то ролик, где как...</div>
+                            <div class="time">Только что к аниме <a href="">Название аниме</a></div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="user">
+                        <img src="/templates/images/noavatar.png" alt="" class="profile">
+                        <div class="status">Гуру</div>
+                        <img src="/templates/images/rank.svg" alt="" class="rank">
+                    </div>
+                    <div class="content">
+                        <div class="comm-inf">
+                            <img src="/templates/images/group.svg" alt="" class="group-icon">
+                            <div class="nickname">Tagir</div>
+                            <div class="count-comms status">900</div>
+                        </div>
+                            <div class="main-comm-content">Ну с этим у них просто - китайцы все маленькие, китаянки тоже, вот у них и китайчата совсем малепусенькие. Китаянки небось и не замечают как беременеют, а потом рожают. Видел как-то ролик, где как...</div>
+                            <div class="time">Только что к аниме <a href="">Название аниме</a></div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="user">
+                        <img src="/templates/images/noavatar.png" alt="" class="profile">
+                        <div class="status">Гуру</div>
+                        <img src="/templates/images/rank.svg" alt="" class="rank">
+                    </div>
+                    <div class="content">
+                        <div class="comm-inf">
+                            <img src="/templates/images/group.svg" alt="" class="group-icon">
+                            <div class="nickname">Tagir</div>
+                            <div class="count-comms status">900</div>
+                        </div>
+                            <div class="main-comm-content">Ну с этим у них просто - китайцы все маленькие, китаянки тоже, вот у них и китайчата совсем малепусенькие. Китаянки небось и не замечают как беременеют, а потом рожают. Видел как-то ролик, где как...</div>
+                            <div class="time">Только что к аниме <a href="">Название аниме</a></div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="user">
+                        <img src="/templates/images/noavatar.png" alt="" class="profile">
+                        <div class="status">Гуру</div>
+                        <img src="/templates/images/rank.svg" alt="" class="rank">
+                    </div>
+                    <div class="content">
+                        <div class="comm-inf">
+                            <img src="/templates/images/group.svg" alt="" class="group-icon">
+                            <div class="nickname">Tagir</div>
+                            <div class="count-comms status">900</div>
+                        </div>
+                            <div class="main-comm-content">Ну с этим у них просто - китайцы все маленькие, китаянки тоже, вот у них и китайчата совсем малепусенькие. Китаянки небось и не замечают как беременеют, а потом рожают. Видел как-то ролик, где как...</div>
+                            <div class="time">Только что к аниме <a href="">Название аниме</a></div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="user">
+                        <img src="/templates/images/noavatar.png" alt="" class="profile">
+                        <div class="status">Гуру</div>
+                        <img src="/templates/images/rank.svg" alt="" class="rank">
+                    </div>
+                    <div class="content">
+                        <div class="comm-inf">
+                            <img src="/templates/images/group.svg" alt="" class="group-icon">
+                            <div class="nickname">Tagir</div>
+                            <div class="count-comms status">900</div>
+                        </div>
+                            <div class="main-comm-content">Ну с этим у них просто - китайцы все маленькие, китаянки тоже, вот у них и китайчата совсем малепусенькие. Китаянки небось и не замечают как беременеют, а потом рожают. Видел как-то ролик, где как...</div>
+                            <div class="time">Только что к аниме <a href="">Название аниме</a></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <section class="description">
+            <p class="header">Animedia Online - Смотреть аниме онлайн</p>
+            <p class="description-text">Сегодня все хотят смотреть аниме онлайн, в особенности японских режиссеров. От обычных мультсериалов анимешки отличаются большей чувственностью героев и их эмоциональностью. В нашей базе AniMedia Online вы сможете лучшие аниме смотреть онлайн в любое удобное время. Ведь что может быть лучше, чем после дневных забот включить любимую картину и хоть на некоторое время забыть обо всех хлопотах. К тому же, теперь не нужно ждать, пока скачается новая серия или пока ее покажут по телевизору. Все что вам понадобится – это выбрать онгоинг и можно приступать к просмотру. <br><br>
+
+                Особое внимание заслуживает и музыкальное сопровождение, которым так богаты лучшие аниме шедевры. Оно помогает зрителю прочувствовать все эмоции, которые испытывают герои в той или иной ситуации, сопереживать вместе с действующими лицами в случае неудач и радоваться их успехам. С каждым годом выходит все больше новых картин с более качественной графикой и спецэффектами. У нас вы сможете смотреть <a href="">новые аниме 2024</a> сразу же после их выхода на экраны, при этом они будут в хорошем качестве и вам не понадобится регистрироваться. Вас ждут новые герои, неожиданные повороты сюжета, а также продолжения понравившихся сериалов, которые не оставят равнодушными ценителей этого жанра. <br><br>
+                
+                Если вы еще не знаете, что посмотреть бесплатно и хотите узнать мнение других посетителей, то у нас есть топ аниме сериалов онлайн, который строится исходя из количества просмотров. Здесь вы сможете найти картину на любой вкус, например, кто-то предпочитает смотреть мастера меча онлайн, а кто-то картины драматического характера. Все это есть у нас на сайте! Вам нужно только сделать пару кликов мышкой и вместе с главными героями вы перенесетесь в их удивительный мир, полный приключений. Приятного просмотра.</p>
+        </section>
+
+        <footer>
+            <div class="top">
+                <div class="right-top">
+                    <a href="">Аниме 2024 года</a>
+                    <a href="">Онгоинги</a>
+                    <a href="">Вопросы и проблемы по сайту</a>
+                    <a href="">Для правообладателей</a>
+                </div>
+                <div class="left-top">© 2024 AniMedia.Online admin@amedia.online</div>               
+            </div>
+            <div class="bottom">
+                <div>AniMedia.Online - Все аниме онлайн в одном месте (18+).</div>
+                <div class="">
+                    <a href=""><img src="/templates/images/telegram-plane.png" alt=""></a>
+                    <a href=""><img src="/templates/images/telegram-plane.png" alt=""></a>
+                    <a href=""><img src="/templates/images/telegram-plane.png" alt=""></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
